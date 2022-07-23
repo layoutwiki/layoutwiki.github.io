@@ -52,8 +52,11 @@ def build_keyboard(language: str, formatted_name: str) -> str:
 
 
 def get_text_contents(formatted_name: str) -> str:
-    with open(f"{formatted_name}/text.md", 'r', encoding='utf-8') as file:
-        return file.read()
+    try:
+        with open(f"{formatted_name}/text.md", 'r', encoding='utf-8') as file:
+            return file.read()
+    except:
+        return ""
 
 
 def text_to_section(text: str) -> Union[str, None]:
@@ -107,16 +110,19 @@ def parse_links(text: str, formatted_name: str) -> str:
 
 def parse_contents(formatted_name: str) -> Tuple[str, str]:
     text = get_text_contents(formatted_name)
+
+    text.replace(r"\*", "$@@@&A").replace(r"\_", "$@@@&U").replace(r"\~", "$@@@&S").replace(r"\`", "$@@@&B")
+
     text = re.sub(r"\*{2}([^\s*]+)\*{2}", r"<b>\1</b>", text)
     text = re.sub(r"\*([^\s*]+)\*", r"<i>\1</i>", text)
-    text = re.sub(r"__([^\s_]+)__", r"<b>\1</b>", text)
+    text = re.sub(r"__([^\s_]+)__", r"<u>\1</u>", text)
     text = re.sub(r"_([^\s_]+)_", r"<i>\1</i>", text)
     text = re.sub(r"~~([^\s~]+)~~", r"<s>\1</s>", text)
     text = re.sub(r"`([^\s_]+)`", r"<code>\1</code>", text)
 
+    text.replace("$@@@&A", "*").replace("$@@@&U", "_").replace("$@@@&S", "~").replace("$@@@&B", "`")
+
     text = parse_links(text, formatted_name)
-    
-    text.replace(r"\*", "*").replace(r"\_", "_").replace(r"\~", "~").replace(r"\`", "`")
 
     sections = [text_to_section("#"+s) for s in re.split(r"#+", text) if len(s) > 0]
     return "".join(filter(lambda x: x is not None, sections))
@@ -221,11 +227,23 @@ def to_update() -> list[Tuple[str, str]]:
         return res
 
 
-def create_templates(): 
-    for name, language in to_update():
-        create_template(name, language, True)
-        print(f"'{name}' has been updated")
+def didnt_update(name: str, language: str) -> str:
+    return f"{name.capitalize().replace('_', ' ').replace('-', ' ')} ~ {language.capitalize()}"
 
+
+def create_templates(): 
+    still_needs_updating = []
+    for name, language in to_update():
+        try:
+            create_template(name, language, True)
+            print(f"'{name}' has been updated")
+        except:
+            print(name, 'failed to update')
+            still_needs_updating.append(didnt_update(name, language))
+
+    with open(".create/to_update.txt", 'w+', encoding='utf8') as txt:
+        txt.write("\n".join(still_needs_updating))
+    
 
 def main():
     create_templates()
