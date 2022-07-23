@@ -1,0 +1,18 @@
+Sfb:  1.084%
+Dsfb: 8.770%
+Finger Speed: 3.379
+    [1.780, 0.818, 2.453, 3.030, 4.682, 2.135, 4.584, 1.265]
+Scissors: 0.167%
+
+Inrolls: 25.082%
+Outrolls: 21.483% 
+Total Rolls: 46.565%
+Onehands: 2.813%
+
+Alternates: 21.468%
+Alternates (sfs): 6.739%
+Total Alternates: 28.207%
+
+Redirects: 9.929%
+Bad Redirects: 1.633%
+Total Redirects: 11.562%

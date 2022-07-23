@@ -75,7 +75,7 @@ header {
 
 .k {
     background-color: rgb(175, 175, 175);
-    border: 1px #ddd solid;
+    border: 1px #444 solid;
     border-radius: max(0.35vh, 0.4vw);
     overflow: hidden;
     line-height: max(1.75vh, 2vw);

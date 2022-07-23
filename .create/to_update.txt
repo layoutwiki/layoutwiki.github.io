@@ -1,0 +1,70 @@
+Aptv3 ~ English
+Aptv4 ~ English
+Blickensderfer ~ English
+Boo ~ English
+Calemog ~ English
+Canary ~ English
+Celestial ~ English
+Colemak ~ English
+Colemak dh ~ English
+Colemak dhv ~ English
+Colemak qi ~ English
+Colemak qi;x ~ English
+Colemaq f ~ English
+Colemaq ~ English
+Crest ~ English
+Crustmak ~ English
+Ctgap3 ~ English
+Dvarf ~ English
+Dvorak ~ English
+Dwarf ~ English
+Engram ~ English
+Hands down ~ English
+Hands right ~ English
+Hands up ~ English
+Heart ~ English
+Hyperroll ~ English
+Isrt ~ English
+Jcuken ~ English
+Listen ~ English
+Lumin ~ English
+Megamak ~ English
+Mtgap30 ~ English
+Nerps ~ English
+Nerth wzx ~ English
+Nerts ~ English
+Norman ~ English
+Phonkie ~ English
+Pine ~ English
+Poqtea ~ English
+Qgmlwy ~ English
+Qwerty ~ English
+Radish ~ English
+Rolll ~ English
+Rollla ~ English
+Rollmak ~ English
+Rtna ~ English
+S roll ~ English
+Semimak ~ English
+Semimak jq ~ English
+Sertain ~ English
+Sind ~ English
+Snug ~ English
+Stdnc ~ English
+Stnd ~ English
+Strd5 ~ English
+Trendei ~ English
+Trendutch ~ English
+Trendy ~ English
+Turducken ~ English
+Typehack ~ English
+Uciea pcrw ~ English
+Vitrimak ~ English
+Vitrimak ortho ~ English
+Whorf ~ English
+Wolfmak ~ English
+Workman ~ English
+Workman2 dev2 ~ English
+Wreath ~ English
+Wreathy ~ English
+Zwou ~ English
