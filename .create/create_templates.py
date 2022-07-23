@@ -33,7 +33,7 @@ def get_key_info(char: str, freq_map: dict[float]) -> Tuple[str, str]:
     
     color = prevalence*30 + log1p(prevalence*120)
     base = 95
-    rgb = f"rgb({base*0.9 + round(color * 17)}, {base*1.3 - round(color * 10)}, {base*1.325 - round(color * 10)})"
+    rgb = f"rgb({base*0.9 + round(color * 20)}, {base*1.1 - round(color * 10)}, {base*1.125 - round(color * 10)})"
     title = f"Key usage: {round(prevalence*100, ndigits=2)}%"
     return rgb, title
 
@@ -214,8 +214,11 @@ def to_update() -> Tuple[list[Tuple[str, str]], list[str]]:
 
     with open(".create/to_update.txt", 'r', encoding='utf-8') as file:
         lines = file.read().split('\n')
+        # lines.append("Sturdy ~ English") # this is useful if you want to change single things on the
+        # page like the heatmap coloring, since it clears out the to do list by default
         res = []
         still_needs_updating = []
+
         for line in lines:
             if re.match(rf"^(\w+| |_|-|;)+~ *({'|'.join(possible_languages)})$", line, re.IGNORECASE):
                 thing = line.split('~')
@@ -226,6 +229,7 @@ def to_update() -> Tuple[list[Tuple[str, str]], list[str]]:
                 if len(line) > 1:
                     print(f"line '{line}' in to_update.txt formatted incorrectly")
                     still_needs_updating.append(line)
+        
         return res, still_needs_updating
 
 
@@ -237,7 +241,7 @@ def create_templates():
     still_needs_updating = []
     namelang, needs_updating = to_update()
     still_needs_updating.extend(needs_updating)
-    
+
     for name, language in namelang:
         try:
             create_template(name, language, True)
