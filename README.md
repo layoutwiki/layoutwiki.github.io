@@ -11,8 +11,8 @@ any number of hashes `#` signals a header, this will be used on the top of each 
 the line after this starts the body of the section. This uses markdown for basic text formatting and linking. Things like quote blocks, tables and lists do not work. You can create paragraphs by leaving a line of whitespace (two newlines) between blocks of text, single newlines are ignored.
 
 Currently supported formatting is the following:
-* \**single asterisks*\* or \_*_single underscores_\_ are used for _italics_,
-* \*\**double asterisks*\* are used for **bold** text,
+* \**single asterisks*\* or \__single underscores_\_ are used for _italics_,
+* \*\***double asterisks**\*\* are used for **bold** text,
 * \_\___double underscores__\_\_ are used for __underlined__ text,
 * \~\~~~double tildes~~\~\~ are used for ~~strikethrough~~,
 * \``single backtics`\` are used for inline code,
