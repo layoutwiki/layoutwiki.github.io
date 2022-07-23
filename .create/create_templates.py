@@ -33,7 +33,7 @@ def get_key_info(char: str, freq_map: dict[float]) -> Tuple[str, str]:
     
     color = prevalence*30 + log1p(prevalence*120)
     base = 95
-    rgb = f"rgb({base*0.9 + round(color * 20)}, {base*1.1 - round(color * 10)}, {base*1.125 - round(color * 10)})"
+    rgb = f"rgb({base*0.9 + round(color * 18)}, {base*1.3 - round(color * 10)}, {base*1.325 - round(color * 10)})"
     title = f"Key usage: {round(prevalence*100, ndigits=2)}%"
     return rgb, title
 
