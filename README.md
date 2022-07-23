@@ -18,5 +18,9 @@ Currently supported formatting is the following:
 * \``single backtics`\` are used for inline code,
 * \[link text to show in place of url\]\(url\) is used for links.
 
-
+To have these formatted and included in the html, you first have to make sure your layout and its language is included in the `to_update.txt` file inside the `.create` folder. The formatting for this file is the following:
+```
+<layout name, can include dashes, underscores or semicolons> ~ <language>
+```
+After having done this, you can simply run the `create_templates.py` python script inside the `.create` folder, and you're on your merry way.
 
