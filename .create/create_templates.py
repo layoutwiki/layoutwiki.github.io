@@ -208,13 +208,14 @@ def ready_to_update():
     return res
 
 
-def to_update() -> list[Tuple[str, str]]:
+def to_update() -> Tuple[list[Tuple[str, str]], list[str]]:
     possible_languages = load_char_stats().keys()
     possible_to_update = ready_to_update()
 
     with open(".create/to_update.txt", 'r', encoding='utf-8') as file:
         lines = file.read().split('\n')
         res = []
+        still_needs_updating = []
         for line in lines:
             if re.match(rf"^(\w+| |_|-|;)+~ *({'|'.join(possible_languages)})$", line, re.IGNORECASE):
                 thing = line.split('~')
@@ -224,7 +225,8 @@ def to_update() -> list[Tuple[str, str]]:
             else:
                 if len(line) > 1:
                     print(f"line '{line}' in to_update.txt formatted incorrectly")
-        return res
+                    still_needs_updating.append(line)
+        return res, still_needs_updating
 
 
 def didnt_update(name: str, language: str) -> str:
@@ -233,7 +235,10 @@ def didnt_update(name: str, language: str) -> str:
 
 def create_templates(): 
     still_needs_updating = []
-    for name, language in to_update():
+    namelang, needs_updating = to_update()
+    still_needs_updating.extend(needs_updating)
+    
+    for name, language in namelang:
         try:
             create_template(name, language, True)
             print(f"'{name}' has been updated")
