@@ -131,7 +131,8 @@ section {
     border: #444 2px solid;
     border-radius: max(0.65vh, 0.75vw);
     padding: 0.75vw;
-    font-size: max(0.75vh, 1.05vw)
+    font-size: max(0.75vh, 1.05vw);
+    text-shadow: #ddd 0 0 1px;
 }
 
 .stats {
